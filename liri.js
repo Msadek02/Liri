@@ -24,6 +24,10 @@ switch (action) {
     case 'spotify-this-song':
         spotify();
         break;
+
+    case 'do-what-it-says':
+        dwis();
+        break;
 }
 
 function omdb() {
@@ -67,8 +71,10 @@ function twitter() {
     client.get(status, params, function(error, tweets, response) {
         if (!error) {
             console.log("Here are the most recent tweets");
+            console.log("-------------------------------");
             for (var i = 0; i < tweets.length; i++) {
                 console.log(tweets[i].text);
+                console.log("-------------------------------");
             }
         }
     });
@@ -76,7 +82,7 @@ function twitter() {
 
 function spotify() {
     if (value != false)
-        var keys = require('./keys.js');
+    var keys = require('./keys.js');
     var Spotify = require('node-spotify-api');
     var spotify = new Spotify(keys.spotify);
     spotify
@@ -105,4 +111,52 @@ function spotify() {
         .catch(function(err) {
             console.log(err);
         });
+}
+
+function dwis() {
+
+    //FS IS AN NPM PACKAGE FOR READING AND WRITING FILES 
+    var fs = require('fs');
+
+    // THIS BLOCK OF CODE READS FROM THE "random.txt" FILE.
+    // IT IS IMPORTANT TO INCLUDE THE "utf8" PARAMETER OR THE CODE WILL PROVIDE STREAM DATA (GARBAGE)
+    // THE CODE WILL STORE THE CONTENTS OF THE READING INSIDE THE VARIABLE "data" 
+    fs.readFile("random.txt", "utf8", function(error, data) {
+
+        //THIS SPLITS ALL THE INFORMATIOM INSIDE 
+        data = data.split(',');
+
+        var command;
+        var parameter;
+
+        if (data.length == 2) {
+            command = data[0];
+            parameter = data[1];
+            console.log(command);
+            console.log(parameter);
+        }
+        
+
+        
+        parameter = parameter.replace('"', '');
+        parameter = parameter.replace('"', '');
+       
+        switch (command) {
+            case 'my-tweets':
+                value = parameter;
+                twitter();
+                break;
+
+            case 'spotify-this-song':
+                value = parameter;
+                spotify();
+                break;
+
+            case 'movie-this':
+                value = parameter;
+                imdb();
+                break;
+        }
+
+    });
 }
