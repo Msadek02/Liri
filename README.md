@@ -7,10 +7,10 @@ LIRI Currently takes in four commands
 
 <my-tweets> - Gives back the last 20 tweets and timestamp for each.
 <spotify-this-song> - Information on your search query including:
-Artist(s)
-Song Name
-Album
-Preview song URL
+*Artist(s)
+*Song Name
+*Album
+*Preview song URL
 <movie-this> - Enter a movie query and get:
 Movie title
 Movie year
