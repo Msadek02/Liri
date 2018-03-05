@@ -1,7 +1,7 @@
 # Liri
 ## Introduction
 
-LIRI is Language Interpretation and Recognition. IT's a command line Node.js App that takes in commands and outputs data based on what you have typed.
+LIRI is Language Interpretation and Recognition. It's a command line in Node.js App that takes in commands and outputs data based on what you have typed.
 
 ### About
 LIRI Currently takes in four commands
