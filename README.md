@@ -21,5 +21,6 @@ LIRI Currently takes in four commands
   - Language
   - Plot
   - Actors
-* `<do-what-it-says>` - Runs whats in the random.txt as a command
+* `<do-what-it-says>` - Runs whats in the random.txt as a command.
+
 If you clone this App from the repo, you must provide your own .env file for it to run.
