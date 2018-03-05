@@ -3,7 +3,7 @@
 
 LIRI is Language Interpretation and Recognition. IT's a command line Node.js App that takes in commands and outputs data based on what you have typed.
 
-About
+### About
 LIRI Currently takes in four commands
 
 * `<my-tweets>` - Gives back the last 20 tweets.
